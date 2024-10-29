@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculator</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+text-align: center;
+background-color:rgb(57, 83, 91);
+}
+.vertical {
+ border-left: 30px solid black;
+ height: 800px;
+ border-right:30px solid black;
+ }
+#calculator {
+width: 300px;
+margin: 50px auto;
+border-radius: 10px;
+padding: 20px;
+}
+input {
+width: 280px;
+padding: 10px;
+margin-bottom: 10px;
+font-size: 20px;
+text-align: right;
+border: none;
+border-bottom: 2px solid #565656;
+outline: none;
+}
+button {
+width: 50%;
+padding: 20px;
+margin: 5px;
+cursor: pointer;
+background-color: #f6f7f8;
+color: #000000;
+border: none;
+border-radius: 5px;
+font-size: 20px;
+}
+button:hover {
+background-color: #0056b3;
+transform: scale(1.1);
+}
+#row1, #row2, #row3, #row4, #row5 {
+display: flex;
+justify-content: space-between;
+}
+</style>
+</head>
+<body class="vertical">
+ <h1>Basic Calculator</h1>
+ <hr color="black" size="20">
+<div id="calculator">
+<input type="text" id="display" placeholder="0" >
+<div id="row1">
+<button onclick="appendToDisplay('7')">7</button>
+<button onclick="appendToDisplay('8')">8</button>
+<button onclick="appendToDisplay('9')">9</button>
+<button onclick="appendToDisplay('+')">+</button>
+</div>
+<div id="row2">
+<button onclick="appendToDisplay('4')">4</button>
+<button onclick="appendToDisplay('5')">5</button>
+<button onclick="appendToDisplay('6')">6</button>
+<button onclick="appendToDisplay('-')">-</button>
+</div>
+<div id="row3">
+<button onclick="appendToDisplay('1')">1</button>
+<button onclick="appendToDisplay('2')">2</button>
+<button onclick="appendToDisplay('3')">3</button>
+<button onclick="appendToDisplay('*')">*</button>
+</div>
+<div id="row4">
+<button onclick="appendToDisplay('0')">0</button>
+<button onclick="appendToDisplay('%')">%</button>
+<button onclick="appendToDisplay('.')">.</button>
+<button onclick="appendToDisplay('/')">/</button>
+</div>
+<div id="row1">
+<button onclick="cleardisplay()">C</button>
+<button onclick="calculate()">=</button>
+</div>
+</div>
+<script>
+ function appendToDisplay(value){
+ document.getElementById("display").value += value;
+ }
+ function clearDisplay(){
+ document.getElementById("display").value ="";
+ }
+ function calculate(){
+ try{
+ const result = eval(document.getElementById("display").value);
+ document.getElementById("display").value = result;
+ }
+ catch{
+ console.log("error Detected");
+ clearDisplay();
+ }
+ }
+</script>
+<hr color="black" size="20">
+</body>
+</html>
